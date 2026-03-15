@@ -11,7 +11,7 @@ abbrlink: 1253343412
 description: 针对机器人优化的统一高效因子图加速器设计
 ---
 
-![image-20251116224113124](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251116224113124.png)
+![image-20251116224113124](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251116224113124.png)
 
 
 
@@ -51,9 +51,9 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 ## 前置知识
 
-![在这里插入图片描述](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/20200720210941626.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/20200720210941626.png)
 
-![image-20251116230925728](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251116230925728.png)
+![image-20251116230925728](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251116230925728.png)
 
 因子图计算
 
@@ -118,7 +118,7 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
  <img src="https://www.zhihu.com/equation?tex=\frac{\partial \mathbf{T}}{\partial \boldsymbol{\xi}}" alt="\frac{\partial \mathbf{T}}{\partial \boldsymbol{\xi}}" class="ee_img tr_noresize" eeimg="1">  中 <img src="https://www.zhihu.com/equation?tex=\mathbf{T}" alt="\mathbf{T}" class="ee_img tr_noresize" eeimg="1">  是  <img src="https://www.zhihu.com/equation?tex=\boldsymbol{\xi}" alt="\boldsymbol{\xi}" class="ee_img tr_noresize" eeimg="1">  的非线性指数函数。
 
-![image-20251117225312278](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225312278.png)
+![image-20251117225312278](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225312278.png)
 
 ###  新姿态表示  <img src="https://www.zhihu.com/equation?tex=< \mathfrak{so}(n), T(n) >" alt="< \mathfrak{so}(n), T(n) >" class="ee_img tr_noresize" eeimg="1"> 
 
@@ -132,11 +132,11 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 广义运算：
 
-![image-20251117225337979](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225337979.png)
+![image-20251117225337979](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225337979.png)
 
 ## 计算模型
 
-![image-20251117225404624](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225404624.png)
+![image-20251117225404624](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225404624.png)
 
 ### Lidar因子误差
 
@@ -148,7 +148,7 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 <img src="https://www.zhihu.com/equation?tex=\mathbf{e} (\boldsymbol{\xi}_i, \boldsymbol{\xi}_j) = < \text{Log}(\Delta \mathbf{R}_{\text{obs}}^T \mathbf{R}_j^T \mathbf{R}_i), \Delta \mathbf{R}_{\text{obs}}^T (\mathbf{R}_j^T (\mathbf{t}_i - \mathbf{t}_j) - \Delta \mathbf{t}_{\text{obs}}) > \tag{4}" alt="\mathbf{e} (\boldsymbol{\xi}_i, \boldsymbol{\xi}_j) = < \text{Log}(\Delta \mathbf{R}_{\text{obs}}^T \mathbf{R}_j^T \mathbf{R}_i), \Delta \mathbf{R}_{\text{obs}}^T (\mathbf{R}_j^T (\mathbf{t}_i - \mathbf{t}_j) - \Delta \mathbf{t}_{\text{obs}}) > \tag{4}" class="ee_img tr_noresize" eeimg="1">
 
-![image-20251117225524202](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225524202.png)
+![image-20251117225524202](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225524202.png)
 
 > 被数学轰炸了，还是有点一知半解，但这样看的话确实避免了冗余和太复杂的计算
 
@@ -158,7 +158,7 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 线性二次调节器 (LQR)：
 
-![image-20251117225536496](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225536496.png)
+![image-20251117225536496](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225536496.png)
 
 稀疏，分块，连续
 
@@ -175,7 +175,7 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 ### 消元更新
 
-![image-20251117225509960](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225509960.png)
+![image-20251117225509960](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117225509960.png)
 
 使用了一种**滑动窗口**方法，只比较 `COL_IND` 数组中窗口内的元素与  <img src="https://www.zhihu.com/equation?tex=x_i" alt="x_i" class="ee_img tr_noresize" eeimg="1">  的列索引。窗口大小被确定为  <img src="https://www.zhihu.com/equation?tex=\lceil M/2 \rceil" alt="\lceil M/2 \rceil" class="ee_img tr_noresize" eeimg="1"> （在定位、规划和控制算法中的变量消除过程中，每个变量节点连接的因子节点数量最多为  <img src="https://www.zhihu.com/equation?tex=\lceil M/2 \rceil" alt="\lceil M/2 \rceil" class="ee_img tr_noresize" eeimg="1"> ）
 
@@ -183,11 +183,11 @@ description: 针对机器人优化的统一高效因子图加速器设计
 
 ## 硬件结构
 
-![image-20251117230107721](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117230107721.png)
+![image-20251117230107721](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117230107721.png)
 
 ### 因子计算单元
 
-![image-20251117230703774](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117230703774.png)
+![image-20251117230703774](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251117230703774.png)
 
 MO-DFG 中的每个**节点**（一个基本矩阵操作）都会被直接映射到硬件上的**一个基本计算单元**。被分配到特定的时钟周期 执行。
 
@@ -201,11 +201,11 @@ MO-DFG 中的每个**节点**（一个基本矩阵操作）都会被直接映射
 
 部分QR分解
 
-![image-20251118081454073](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118081454073.png)
+![image-20251118081454073](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118081454073.png)
 
 电路图
 
-![image-20251118085540019](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118085540019.png)
+![image-20251118085540019](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118085540019.png)
 
 u开根得到v没有对上，推测应当是转化为：
 
@@ -218,7 +218,7 @@ u开根得到v没有对上，推测应当是转化为：
 
 ### 回代计算
 
-![image-20251118091301346](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118091301346.png)
+![image-20251118091301346](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118091301346.png)
 
 从上到下一层层向下算，求解到上一层的根，经过PE更新解向量下一层的值
 
@@ -232,14 +232,14 @@ u开根得到v没有对上，推测应当是转化为：
 
 每次回代单元**更新一个位姿向量**时，因子计算单元就可以立即开始**下一轮的求解迭代**。
 
-![image-20251118102357512](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118102357512.png)
+![image-20251118102357512](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118102357512.png)
 
 ## 评估
 
-![image-20251118103158856](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103158856.png)
+![image-20251118103158856](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103158856.png)
 
-![image-20251118103039774](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103039774.png)
+![image-20251118103039774](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103039774.png)
 
-![image-20251118103055095](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103055095.png)
+![image-20251118103055095](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103055095.png)
 
-![image-20251118103113655](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103113655.png)
+![image-20251118103113655](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Factor-Graph-Accelerator/image-20251118103113655.png)
