@@ -15,7 +15,7 @@ date: 2025-04-19 15:40:25
 
 ### Typora端效果
 
-![image-20250419154952666](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Typora与hexo完美适配/image-20250419154952666_1.png)
+![image-20250419154952666](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Typora与hexo完美适配/image-20250419154952666.png)
 
 有空补一下详细配置过程。
 

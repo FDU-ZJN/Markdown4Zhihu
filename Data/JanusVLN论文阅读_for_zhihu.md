@@ -33,7 +33,7 @@ abbrlink: 3740239749
 
 
 
-![image-20251028144204322](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028144204322_1.png)
+![image-20251028144204322](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028144204322.png)
 
 >高德和西交最近的论文，这几天要开源
 
@@ -100,7 +100,7 @@ abbrlink: 3740239749
 >  初始窗口是基于先前的研究[[2309.17453\] Efficient Streaming Language Models with Attention Sinks](https://arxiv.org/abs/2309.17453)
 >  论文中发现最开头的几个token(即initial tokens)尽管从整体生成内容的语义上感觉没那么重要，但是它们的attention score一直很高，分析认为造成这个现象的原因应该和Softmax有关。另外，生成式模型本身autoregressive的本质也使得initial tokens肯定会被后续所有生成的token所关注(attend)，实际上带来了过度的关注，因此这些initial tokens的attention score会很高，直接把它们去掉肯定会带来问题。
 
-![image-20251028152124021](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028152124021_1.png)
+![image-20251028152124021](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028152124021.png)
 
 由于VGGT需要重新处理整个序列，因此其推理时间随着每个新帧的增加而呈指数增长，导致在仅有48帧的情况下，48G GPU上出现内存不足错误。相比之下，该方法避免了重新处理历史帧，使其推理时间仅略有增加，从而表现出卓越的效率。
 
@@ -108,13 +108,13 @@ abbrlink: 3740239749
 
 ### 总的框架
 
-![image-20251028152259692](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028152259692_1.png)
+![image-20251028152259692](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028152259692.png)
 
 给定一个仅RGB的视频流和导航指令，JanusVLN利用双编码器分别提取视觉语义和空间几何特征。它同时将来自初始滑动窗口和最近滑动窗口的历史键值缓存到双重隐式记忆中，以方便特征重用并防止冗余计算。最后，这两个互补的特征被融合并输入到LLM中，以预测下一个动作。
 
 ## 结果
 
-![image-20251028214535865](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028214535865_1.png)
+![image-20251028214535865](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/JanusVLN论文阅读/image-20251028214535865.png)
 
 | 与SOTA方法对比                                    | 关键指标 (SR/SPL) | JanusVLN 性能提升幅度 | 核心结论                                |
 

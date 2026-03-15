@@ -25,7 +25,7 @@ abbrlink: 3744789499
 
 ### 基础介绍（可以直接跳过）
 
-![image-20260222092312355](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222092312355_1.png)
+![image-20260222092312355](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222092312355.png)
 
 一个叫FineWeb的英语网页数据集，15-trillion tokens，44TB，这么大啊。。。
 
@@ -33,20 +33,20 @@ abbrlink: 3744789499
 
 序列化
 
-<img src="https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222094757060_1.png" alt="image-20260222094757060" style="zoom: 50%;" />
+<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222094757060.png" alt="image-20260222094757060" style="zoom: 50%;" />
 
 推理
 
-<img src="https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222095607015_1.png" alt="image-20260222095607015" style="zoom: 67%;" />
+<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222095607015.png" alt="image-20260222095607015" style="zoom: 67%;" />
 
 神经网络内部
 
 一个很有趣的网站课程里的[LLM Visualization](https://bbycroft.net/llm)，Transformer的架构非常直观，可以清晰地看到Q,K,V，还有动画演示计算过程
 
-<img src="https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222100249718_1.png" alt="image-20260222100249718" style="zoom: 25%;" />
+<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222100249718.png" alt="image-20260222100249718" style="zoom: 25%;" />
 
 就是闭环地一个个蹦
 
-![image-20260222101137882](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222101137882_1.png)
+![image-20260222101137882](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/CS146S/image-20260222101137882.png)
 
 兴致勃勃地跟着学vibe coding，学到一半了发现cursor不让中国学生认证。。。唉，算了，那以后再学吧

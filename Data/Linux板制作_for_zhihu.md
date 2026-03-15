@@ -34,11 +34,11 @@ F1C200S，全志H3，全志V3s，rk3566，让AI总结的性能对比
 
 ## 画PCB
 
-![image-20250620151738388](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Linux板制作/image-20250620151738388_1.png)
+![image-20250620151738388](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Linux板制作/image-20250620151738388.png)
 
 晶振电路，2个15PF的寄生电容，存储和锁相环电压
 
-![image-20250620160950578](https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/Linux板制作/image-20250620160950578_1.png)
+![image-20250620160950578](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/Linux板制作/image-20250620160950578.png)
 
 32.768kHz低速晶振接口
 
