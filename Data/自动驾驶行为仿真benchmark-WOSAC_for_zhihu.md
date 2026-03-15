@@ -21,9 +21,9 @@ description: 自动驾驶行为仿真现在最主流的benchmark
 
 将驾驶建模为一个隐马尔可夫模型
 
-![image-20251123194036636](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123194036636_1.png)
+![image-20251123194036636](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123194036636.png)
 
-![image-20251124083143152](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124083143152_1.png)
+![image-20251124083143152](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124083143152.png)
 
 >  不知道为什么这个表格传到博客一直公式格式不对，放弃了，就用图片吧
 
@@ -43,7 +43,7 @@ description: 自动驾驶行为仿真现在最主流的benchmark
 
 因子分解 : 世界模型 q_world 必须分解为自动驾驶汽车（AV）的策略  <img src="https://www.zhihu.com/equation?tex=π(o^{AV}_t|oc<t)" alt="π(o^{AV}_t|oc<t)" class="ee_img tr_noresize" eeimg="1"> 和环境动态模型  <img src="https://www.zhihu.com/equation?tex=q(o^{env}_t|oc<t)" alt="q(o^{env}_t|oc<t)" class="ee_img tr_noresize" eeimg="1">  的乘积。这意味着AV的行为模型和环境中其他智能体的行为模型是分离的。
 
-![image-20251123194543638](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123194543638_1.png)
+![image-20251123194543638](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123194543638.png)
 
 >  也就是不允许开环生成的
 
@@ -65,7 +65,7 @@ description: 自动驾驶行为仿真现在最主流的benchmark
 
 如果我们知道真实世界分布  <img src="https://www.zhihu.com/equation?tex=p^{world}" alt="p^{world}" class="ee_img tr_noresize" eeimg="1">  的解析形式，我们应该最小化**负对数似然**
 
-![image-20251123200638939](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123200638939_1.png)
+![image-20251123200638939](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123200638939.png)
 
 #### 问题
 
@@ -92,7 +92,7 @@ description: 自动驾驶行为仿真现在最主流的benchmark
 
 最终的综合指标 `MK` 是所有9个组件指标NLL的加权平均值。为了强调安全性，**碰撞**和**偏离道路**这两个指标的权重是其他指标的2倍。
 
-![image-20251123201509489](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123201509489_1.png)
+![image-20251123201509489](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251123201509489.png)
 
 >让AI写了一个例子稍微改了改，感觉能帮助理解：
 >
@@ -137,9 +137,9 @@ CAD: 一种开环方法，使用MTR进行预测，并通过拒绝采样来过滤
 
 ### 指标
 
-![image-20251124081617313](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124081617313_1.png)
+![image-20251124081617313](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124081617313.png)
 
-![image-20251124081637018](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124081637018_1.png)
+![image-20251124081637018](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124081637018.png)
 
 指标要和这些做比较了
 
@@ -151,7 +151,7 @@ CAD: 一种开环方法，使用MTR进行预测，并通过拒绝采样来过滤
 
 **开环模型的重新规划频率**：对于基于开环预测模型（如Wayformer）的方法，一个反直觉的发现是，**较低的重规划频率（如2Hz）性能反而优于较高的频率（如10Hz）**。大概就是出现误差很难自己纠正，会一直累积下来，闭环能纠正，就好一些。
 
-![image-20251124082126253](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124082126253_1.png)
+![image-20251124082126253](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124082126253.png)
 
 **主流技术路径**：绝大多数成功的提交方案都基于**Transformer架构**，并强烈依赖于先进的**运动预测模型**（特别是MTR）作为其核心组件。
 
@@ -169,4 +169,4 @@ CAD: 一种开环方法，使用MTR进行预测，并通过拒绝采样来过滤
 
 在复杂的交叉口场景中，简单的启发式模型（如恒速模型）会生成导致碰撞的不合理轨迹。相比之下，数据驱动的学习型模型能够产生安全、平滑且符合人类驾驶习惯的行为。
 
-![image-20251124082413655](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124082413655_1.png)
+![image-20251124082413655](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/自动驾驶行为仿真benchmark-WOSAC/image-20251124082413655.png)

@@ -10,11 +10,11 @@ abbrlink: 6732346653
 description: Decoupled Diffusion Sparks Adaptive Scene Generation 论文阅读
 ---
 
-![image-20251214092354467](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20251214092354467_1.png)
+![image-20251214092354467](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20251214092354467.png)
 
 ## 模型结构
 
-![image-20251214095443531](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20251214095443531_1.png)
+![image-20251214095443531](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20251214095443531.png)
 
 模型从 **真实驾驶日志** 和 **安全关键数据** 中学习，分别对 **智能体（Agent）** 和 **地图（Map）** 进行编码，然后输入到一个 **Diffusion Transformer**中。
 
@@ -26,7 +26,7 @@ description: Decoupled Diffusion Sparks Adaptive Scene Generation 论文阅读
 
 从2秒历史预测8秒未来。
 
-<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20260111111351147_1.png" alt="image-20260111111351147" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20260111111351147.png" alt="image-20260111111351147" style="zoom:50%;" />
 
 通过一个**滑动窗口** 进行采样 。利用**流水线调度策略**，在每个去噪步骤中，会有已经完成去噪的令牌（代表当前时刻的状态）被“弹出 (Pop)”，同时新的高噪声令牌（代表未来的时刻）会被加入窗口中进行去噪 。
 
@@ -50,11 +50,11 @@ description: Decoupled Diffusion Sparks Adaptive Scene Generation 论文阅读
 >
 >  **结果**：直到这种“弹出”动作持续了 80 个步长，从而凑齐完整的 8 秒轨迹。
 
-<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20260111112723522_1.png" alt="image-20260111112723522" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20260111112723522.png" alt="image-20260111112723522" style="zoom: 50%;" />
 
 它 在 **nuPlan**、**Waymo** 以及自建的 **Nexus-Data** 上测试
 
-<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20260111112932116_1.png" alt="image-20260111112932116" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20260111112932116.png" alt="image-20260111112932116" style="zoom:50%;" />
 
 在指标对比时分别随机提供一个目标点，和自由地生成一个 8 秒的未来，都使用前两秒作为上下文。
 
@@ -64,7 +64,7 @@ description: Decoupled Diffusion Sparks Adaptive Scene Generation 论文阅读
 
 表1指标，split:**nuPlan Val** 
 
-<img src="https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20260111110132037_1.png" alt="image-20260111110132037" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20260111110132037.png" alt="image-20260111110132037" style="zoom: 50%;" />
 
 ### Waymo评估
 
@@ -76,7 +76,7 @@ Waymo评估要求基于1秒的历史观测数据生成32个未来场景预测，
 
 智能体基于2秒的历史观测数据预测一个8秒的轨迹，并采取0.1秒的动作。环境根据智能体的动作更新场景，以10Hz的频率运行。在使用生成模型作为世界生成器的实验中，替换了原始的nuPlan环境。从一个2秒的历史场景开始，它根据智能体的动作生成并更新下一个场景（提前0.1秒）。
 
-![image-20260112103312679](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/nexus论文阅读/image-20260112103312679_1.png)
+![image-20260112103312679](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/nexus论文阅读/image-20260112103312679.png)
 
 >  闭环评估用的是另外三个指标
 >

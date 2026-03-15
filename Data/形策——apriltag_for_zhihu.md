@@ -11,7 +11,7 @@ date: 2025-03-28 16:42:35
 
 ## 形策要做这方面的汇报，记录一下
 
-![2](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/形策——apriltag/2_1.png)
+![2](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/形策——apriltag/2.png)
 
 ### 自适应阈值
 
@@ -67,7 +67,7 @@ for i in range(4):
 plt.show()
 ```
 
-![2ab3dc57322e009a540834c61143ddea](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/形策——apriltag/2ab3dc57322e009a540834c61143ddea_1.png)
+![2ab3dc57322e009a540834c61143ddea](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/形策——apriltag/2ab3dc57322e009a540834c61143ddea.png)
 
 ### 深度学习
 
@@ -79,7 +79,7 @@ plt.show()
 
 ### 基于卡尔曼滤波的Apriltag+IMU传感器融合识别
 
-![OIP-C](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/形策——apriltag/OIP-C_1.jpg)
+![OIP-C](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu@master/Data/形策——apriltag/OIP-C.jpg)
 
 MPU6050是一个6轴姿态传感器（3轴[加速度计](https://so.csdn.net/so/search?q=加速度计&spm=1001.2101.3001.7020)和3轴陀螺仪传感器），可以测量芯片自身X、Y、Z轴的加速度、角度参数，通过数据融合，可以得到姿态角
 
