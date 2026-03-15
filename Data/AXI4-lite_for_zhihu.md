@@ -24,11 +24,11 @@ date: 2025-03-28 09:20:03
 
 写模式
 
-![v2-409773b26d0c77c20b9509b385090ccb_r](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/AXI4-lite/v2-409773b26d0c77c20b9509b385090ccb_r_1.jpg)
+![v2-409773b26d0c77c20b9509b385090ccb_r](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/AXI4-lite/v2-409773b26d0c77c20b9509b385090ccb_r.jpg)
 
 读模式
 
-![v2-34063f9d75b47c771bd029080cabe9f5_1440w](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/AXI4-lite/v2-34063f9d75b47c771bd029080cabe9f5_1440w_1.jpg)
+![v2-34063f9d75b47c771bd029080cabe9f5_1440w](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/AXI4-lite/v2-34063f9d75b47c771bd029080cabe9f5_1440w.jpg)
 
 LSU伪代码
 
