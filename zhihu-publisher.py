@@ -7,7 +7,7 @@ import os.path as op
 from PIL import Image
 from pathlib2 import Path
 from shutil import copyfile
-GITHUB_REPO_PREFIX = "https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/"
+GITHUB_REPO_PREFIX = "https://cdn.statically.io/gh/FDU-ZJN/Markdown4Zhihu/master/Data/"
 COMPRESS_THRESHOLD = 5e5 
 
 def process_for_zhihu(input_file, current_args):
