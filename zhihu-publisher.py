@@ -1,151 +1,146 @@
-
-
-# Usage: This program aims to transfer your markdown file into a way zhihu.com can recognize correctly.
-#        It will mainly deal with your local images and the formulas inside.
-
 import os, re
 import argparse
 import subprocess
 import chardet
 import functools
 import os.path as op
-
 from PIL import Image
 from pathlib2 import Path
 from shutil import copyfile
-
-###############################################################################################################
-## Please change the GITHUB_REPO_PREFIX value according to your own GitHub user name and relative directory. ##
-###############################################################################################################
-# GITHUB_REPO_PREFIX = Path("https://raw.githubusercontent.com/`YourUserName`/`YourRepoName`/master/Data/")
-# Your image folder remote link
 GITHUB_REPO_PREFIX = "https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/"
-COMPRESS_THRESHOLD = 5e5 # The threshold of compression
+COMPRESS_THRESHOLD = 5e5 
 
-# The main function for this program
-def process_for_zhihu():
-
-    if args.encoding is None:
-        with open(str(args.input), 'rb') as f:
+def process_for_zhihu(input_file, current_args):
+    current_args.input = Path(input_file)
+    current_args.file_parent = str(current_args.input.parent)
+    current_args.used_images = []
+    image_folder_path = op.join(current_args.current_script_data_path, current_args.input.stem)
+    if not op.exists(image_folder_path):
+        os.makedirs(image_folder_path)
+    current_args.image_folder_path = image_folder_path
+    if current_args.encoding is None:
+        with open(str(current_args.input), 'rb') as f:
             s = f.read()
             chatest = chardet.detect(s)
-            args.encoding = chatest['encoding']
-        print(chatest)
-    with open(str(args.input),"r",encoding=args.encoding) as f:
+            encoding = chatest['encoding']
+    else:
+        encoding = current_args.encoding
+
+    print(f"--- Processing: {current_args.input.name} (Encoding: {encoding}) ---")
+
+    with open(str(current_args.input), "r", encoding=encoding) as f:
         lines = f.read()
-        lines = image_ops(lines)
+        lines = image_ops(lines, current_args)
         lines = formula_ops(lines)
         lines = table_ops(lines)
-        with open(op.join(args.current_script_data_path, args.input.stem+"_for_zhihu.md"), "w+", encoding=args.encoding) as fw:
+        
+        output_path = op.join(current_args.current_script_data_path, current_args.input.stem + "_for_zhihu.md")
+        with open(output_path, "w+", encoding=encoding) as fw:
             fw.write(lines)
-        cleanup_image_folder()
-        git_ops()
+    
+    cleanup_image_folder(current_args)
 
-# Deal with the formula and change them into Zhihu original format
+
 def formula_ops(_lines):
     _lines = re.sub('((.*?)\$\$)(\s*)?([\s\S]*?)(\$\$)\n', '\n<img src="https://www.zhihu.com/equation?tex=\\4" alt="\\4" class="ee_img tr_noresize" eeimg="1">\n', _lines)
     _lines = re.sub('(\$)(?!\$)(.*?)(\$)', ' <img src="https://www.zhihu.com/equation?tex=\\2" alt="\\2" class="ee_img tr_noresize" eeimg="1"> ', _lines)
     return _lines
 
-# The support function for image_ops. It will take in a matched object and make sure they are competible
-def rename_image_ref(m, original=True):
-    # global image_folder_path
+def rename_image_ref(m, current_args, original=True):
     ori_path = m.group(2) if original else m.group(1)
     try:
         if op.exists(ori_path):
             full_img_path = ori_path
-            # copy the image to image_folder_path
-            # generate a unique name for the image, if there is a same name image, then add a number to the end of the name recursively until it is unique
             img_stem = Path(full_img_path).stem
             img_suffix = Path(full_img_path).suffix
-            img_name = img_stem+img_suffix
-            img_name_new = img_name
-            if op.exists(op.join(args.image_folder_path, img_name_new)):
-                i = 1
-                while op.exists(op.join(args.image_folder_path, img_name_new)):
-                    img_name_new = img_stem+"_"+str(i)+img_suffix
-                    i+=1
+            img_name_new = img_stem + img_suffix
             
-            copyfile(full_img_path, op.join(args.image_folder_path, img_name_new))
-            full_img_path = op.join(args.image_folder_path, img_name_new)
-
+            # ���ͬ����ͻ
+            if op.exists(op.join(current_args.image_folder_path, img_name_new)):
+                i = 1
+                while op.exists(op.join(current_args.image_folder_path, img_name_new)):
+                    img_name_new = f"{img_stem}_{i}{img_suffix}"
+                    i += 1
+            
+            copyfile(full_img_path, op.join(current_args.image_folder_path, img_name_new))
+            full_img_path = op.join(current_args.image_folder_path, img_name_new)
         else:
-            full_img_path = op.join(args.file_parent, ori_path)
-            img_stem = Path(full_img_path).stem
+            full_img_path = op.join(current_args.file_parent, ori_path)
             if not op.exists(full_img_path):
                 return m.group(0)
     except OSError:
         return m.group(0)
 
-    if op.getsize(full_img_path)>COMPRESS_THRESHOLD and args.compress:
+    if op.getsize(full_img_path) > COMPRESS_THRESHOLD and current_args.compress:
         full_img_path = reduce_single_image_size(full_img_path)
     
     image_ref_name = Path(full_img_path).name
-    args.used_images.append(image_ref_name)
-
-    print('full_img_path',full_img_path)
-    print('image_ref_name',image_ref_name)
+    current_args.used_images.append(image_ref_name)
     
     if original:
-        return "!["+m.group(1)+"]("+GITHUB_REPO_PREFIX+args.input.stem+"/"+image_ref_name+")"
+        return "![" + m.group(1) + "](" + GITHUB_REPO_PREFIX + current_args.input.stem + "/" + image_ref_name + ")"
     else:
-        return '<img src="'+GITHUB_REPO_PREFIX+args.input.stem+"/" +image_ref_name +'"'
+        return '<img src="' + GITHUB_REPO_PREFIX + current_args.input.stem + "/" + image_ref_name + '"'
 
-def cleanup_image_folder():
-    actual_image_paths = [op.join(args.image_folder_path, i) for i in os.listdir(args.image_folder_path) if op.isfile(op.join(args.image_folder_path, i))]
+def cleanup_image_folder(current_args):
+    actual_image_paths = [op.join(current_args.image_folder_path, i) for i in os.listdir(current_args.image_folder_path) if op.isfile(op.join(current_args.image_folder_path, i))]
     for image_path in actual_image_paths:
-        if Path(image_path).name not in args.used_images:
-            print("File "+str(image_path)+" is not used in the markdown file, so it will be deleted.")
+        if Path(image_path).name not in current_args.used_images:
             os.remove(str(image_path))
 
-# Search for the image links which appear in the markdown file. It can handle two types: ![]() and <img src="LINK" alt="CAPTION" style="zoom:40%;" />.
-# The second type is mainly for those images which have been zoomed.
-def image_ops(_lines):
-    _lines = re.sub(r"\!\[(.*?)\]\((.*?)\)",functools.partial(rename_image_ref, original=True), _lines)
-    _lines = re.sub(r'<img src="(.*?)"',functools.partial(rename_image_ref, original=False), _lines)
+def image_ops(_lines, current_args):
+    _lines = re.sub(r"\!\[(.*?)\]\((.*?)\)", functools.partial(rename_image_ref, current_args=current_args, original=True), _lines)
+    _lines = re.sub(r'<img src="(.*?)"', functools.partial(rename_image_ref, current_args=current_args, original=False), _lines)
     return _lines
 
-# Deal with table. Just add a extra \n to each original table line
 def table_ops(_lines):
-    return re.sub("\|\n",r"|\n\n", _lines)
-
+    return re.sub("\|\n", r"|\n\n", _lines)
 
 def reduce_single_image_size(image_path):
-    # The output file path suffix must be jpg
-    output_path = Path(image_path).parent/(Path(image_path).stem+".jpg")
+    output_path = Path(image_path).parent / (Path(image_path).stem + ".jpg")
     if op.exists(image_path):
         img = Image.open(image_path)
-        if(img.size[0]>img.size[1] and img.size[0]>1920):
-            img=img.resize((1920,int(1920*img.size[1]/img.size[0])),Image.ANTIALIAS)
-        elif(img.size[1]>img.size[0] and img.size[1]>1080):
-            img=img.resize((int(1080*img.size[0]/img.size[1]),1080),Image.ANTIALIAS)
-        img.convert('RGB').save(output_path, optimize=True,quality=85)
+        if (img.size[0] > img.size[1] and img.size[0] > 1920):
+            img = img.resize((1920, int(1920 * img.size[1] / img.size[0])), Image.ANTIALIAS)
+        elif (img.size[1] > img.size[0] and img.size[1] > 1080):
+            img = img.resize((int(1080 * img.size[0] / img.size[1]), 1080), Image.ANTIALIAS)
+        img.convert('RGB').save(output_path, optimize=True, quality=85)
     return output_path
 
-# Push your new change to github remote end
-def git_ops():
-    subprocess.run(["git","add","-A"])
-    subprocess.run(["git","commit","-m", "update file "+args.input.stem])
-    subprocess.run(["git","push", "-u", "origin", "master"])
+def git_ops(message="update files"):
+    print("--- Pushing to GitHub ---")
+    subprocess.run(["git", "add", "-A"])
+    subprocess.run(["git", "commit", "-m", message])
+    subprocess.run(["git", "push", "-u", "origin", "master"])
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser('Please input the file path you want to transfer using --input=""')
-    parser.add_argument('--compress', action='store_true', help='Compress the image which is too large')
-    parser.add_argument('-i', '--input', type=str, help='Path to the file you want to transfer.')
-    parser.add_argument('-e', '--encoding', type=str, help='Encoding of the input file')
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--compress', action='store_true', help='Compress images')
+    parser.add_argument('-i', '--input', type=str, help='Path to file OR directory')
+    parser.add_argument('-e', '--encoding', type=str, help='Encoding')
     args = parser.parse_args()
-    args.used_images = []
-    if args.input is None:
-        raise FileNotFoundError("Please input the file's path to start!")
-    else:
-        args.input = Path(args.input)
-        args.file_parent = str(args.input.parent)
 
-        args.current_script_data_path = str(Path(__file__).absolute().parent / 'Data')
-        args.image_folder_path = op.join(args.current_script_data_path, args.input.stem)
-        if not op.exists(args.image_folder_path):
-            os.makedirs(args.image_folder_path)
-                     
-        print(args.image_folder_path)
-        process_for_zhihu()
+    if args.input is None:
+        raise FileNotFoundError("Please provide an input path!")
+
+    input_path = Path(args.input)
+    args.current_script_data_path = str(Path(__file__).absolute().parent / 'Data')
+    target_files = []
+    if input_path.is_dir():
+        print(f"Directory detected. Searching for .md files in {input_path}")
+        target_files = list(input_path.glob("*.md"))
+    elif input_path.is_file():
+        target_files = [input_path]
+    else:
+        raise FileNotFoundError(f"Path not found: {args.input}")
+
+    if not target_files:
+        print("No Markdown files found to process.")
+    else:
+        # ��������ļ�
+        for file in target_files:
+            process_for_zhihu(file, args)
+        
+        # ȫ��������ɺ�һ�����ύ Git
+        git_ops(message=f"Batch update: {len(target_files)} files")
+        print("\nAll done!")
