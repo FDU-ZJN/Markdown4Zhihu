@@ -16,7 +16,7 @@ description: 使用giscus在hexo-butterfly实现评论功能
 
 链接：[GitHub Apps - giscus](https://github.com/apps/giscus)
 
-![image-20251128180923734](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128180923734.png)
+![image-20251128180923734](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128180923734_1.png)
 
 可以选安装到全局也可以选择安装到某一个仓库（后面可以改），然后点击 **Install** 安装
 
@@ -24,15 +24,15 @@ description: 使用giscus在hexo-butterfly实现评论功能
 
 找到你安装的对应仓库，打开settings，将Discussion勾选
 
-![image-20251128181108419](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181108419.png)
+![image-20251128181108419](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181108419_1.png)
 
 随后点击 **Set up discussions**，进入 Discussions 配置界面（我已经配置好了，所以没有，正常在Discussions右边绿色）。
 
-![创建Announcements板块](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/d45dd33592f48f704e95cbca1b749912.png)
+![创建Announcements板块](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/d45dd33592f48f704e95cbca1b749912_1.png)
 
 进行下一步前，检查是否满足以下要求
 
-![image-20251128181428464](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181428464.png)
+![image-20251128181428464](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181428464_1.png)
 
 ## Giscuss配置
 
@@ -40,21 +40,21 @@ description: 使用giscus在hexo-butterfly实现评论功能
 
 填写仓库信息，格式 `myusername/myrepo`
 
-![image-20251128181346906](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181346906.png)
+![image-20251128181346906](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/image-20251128181346906_1.png)
 
 选择Discussion 的标题包含页面的 URL
 
-![如图所示](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/65642a36d4d5e378f6e0134ee8a3c42b.png)
+![如图所示](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/65642a36d4d5e378f6e0134ee8a3c42b_1.png)
 
 分类选择刚建成的Announcement
 
-![选择分类](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/a63f2ce0ae62f84980ab7cca4f3341c3.png)
+![选择分类](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/a63f2ce0ae62f84980ab7cca4f3341c3_1.png)
 
 ## 博客配置
 
 按照自动生成的配置填写_config.yml配置
 
-![如图所示](https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/ad8fcfd04a3cca32affeba67ab9ae2bd.png)将启用 giscus 处复制的 data-repo 的值粘贴至 butterfly 主题配置文件中的 repo 处；
+![如图所示](https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/hexo博客添加评论功能/ad8fcfd04a3cca32affeba67ab9ae2bd_1.png)将启用 giscus 处复制的 data-repo 的值粘贴至 butterfly 主题配置文件中的 repo 处；
 将 data-repo-id 处复制的值粘贴值配置文件中的 repo-id 处；
 将 data-category-id 处复制的值粘贴至配置文件中的 category-id 处
 不加引号

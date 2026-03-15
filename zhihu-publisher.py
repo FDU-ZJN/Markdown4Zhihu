@@ -9,7 +9,7 @@ from PIL import Image
 from pathlib2 import Path
 from shutil import copyfile
 
-GITHUB_REPO_PREFIX = "https://cdn.jsdelivr.net/gh/FDU-ZJN/Markdown4Zhihu/master/Data/"
+GITHUB_REPO_PREFIX = "https://raw.githubusercontent.com/FDU-ZJN/Markdown4Zhihu/master/Data/"
 COMPRESS_THRESHOLD = 5e5
 
 def formula_ops(lines):
